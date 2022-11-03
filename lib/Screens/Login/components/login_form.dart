@@ -62,10 +62,10 @@ class _LoginForm extends State<LoginWidget> {
             //   });
             // },
             decoration: const InputDecoration(
-              hintText: "Your email",
+              hintText: "Enter your email",
               prefixIcon: Padding(
                 padding: EdgeInsets.all(defaultPadding),
-                child: Icon(Icons.person),
+                child: Icon(Icons.email_outlined),
               ),
             ),
           ),

@@ -196,70 +196,63 @@ class _currentUserPaymentState extends State<currentUserPayment> {
                               color: Colors.black,
                               onPressed: () {
                                 showDialog(
-                                    context: context,
-                                    builder: (context) => Dialog(
-                                          child: Container(
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width /
-                                                4,
-                                            color: kPrimaryLightColor,
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: ListView(
-                                                shrinkWrap: true,
-                                                children: <Widget>[
-                                                  DropdownButton(
-                                                    value: dropdownvalue,
-                                                    icon: const Icon(Icons
-                                                        .keyboard_arrow_down),
-                                                    items: items
-                                                        .map((String items) {
-                                                      return DropdownMenuItem(
-                                                        value: items,
-                                                        child: Text(items),
-                                                      );
-                                                    }).toList(),
-                                                    onChanged:
-                                                        (String? newValue) {
-                                                      setState(() {
-                                                        dropdownvalue =
-                                                            newValue!;
-                                                      });
-                                                    },
-                                                  ),
-                                                  const SizedBox(
-                                                      height:
-                                                          defaultPadding / 2),
-                                                  ElevatedButton(
-                                                    onPressed: () {
-                                                      helper.update(
-                                                        UpdateuserModel(
-                                                          status: dropdownvalue,
-                                                          user_email:
-                                                              "${signleuser.user_email}",
-                                                          phonenumber:
-                                                              "${signleuser.phonenumber}",
-                                                          amount:
-                                                              "${signleuser.amount}",
-                                                          uid:
-                                                              "${signleuser.uid}",
-                                                        ),
-
-                                                        // DateTime.now()
-                                                        //     as Timestamp),
-                                                      );
-                                                      Navigator.pop(context);
-                                                    },
-                                                    child: Text(
-                                                        "report".toUpperCase()),
-                                                  ),
-                                                ],
-                                              ),
+                                  context: context,
+                                  builder: (context) => Dialog(
+                                    child: Container(
+                                      width:
+                                          MediaQuery.of(context).size.width / 4,
+                                      color: kPrimaryLightColor,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: ListView(
+                                          shrinkWrap: true,
+                                          children: <Widget>[
+                                            DropdownButton(
+                                              value: dropdownvalue,
+                                              icon: const Icon(
+                                                  Icons.keyboard_arrow_down),
+                                              items: items.map((String items) {
+                                                return DropdownMenuItem(
+                                                  value: items,
+                                                  child: Text(items),
+                                                );
+                                              }).toList(),
+                                              onChanged: (String? newValue) {
+                                                setState(() {
+                                                  dropdownvalue = newValue!;
+                                                });
+                                              },
                                             ),
-                                          ),
-                                        ));
+                                            const SizedBox(
+                                                height: defaultPadding / 2),
+                                            ElevatedButton(
+                                              onPressed: () {
+                                                helper.update(
+                                                  UpdateuserModel(
+                                                    status: dropdownvalue,
+                                                    user_email:
+                                                        "${signleuser.user_email}",
+                                                    phonenumber:
+                                                        "${signleuser.phonenumber}",
+                                                    amount:
+                                                        "${signleuser.amount}",
+                                                    uid: "${signleuser.uid}",
+                                                  ),
+
+                                                  // DateTime.now()
+                                                  //     as Timestamp),
+                                                );
+                                                //Navigator.pop(context);
+                                              },
+                                              child:
+                                                  Text("report".toUpperCase()),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
                               },
                             ),
                           ),
