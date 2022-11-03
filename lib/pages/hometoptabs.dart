@@ -4,12 +4,13 @@ import 'package:Nkipay/pages/homepage.dart';
 
 import 'package:Nkipay/utils/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../Screens/Signup/components/sign_up_top_image.dart';
 import 'homeSreens/current_user_trans.dart';
+import 'homeSreens/dynamivtable.dart';
 
 class HomeTopTabs extends StatefulWidget {
   HomeTopTabs(this.colorVal);
@@ -32,12 +33,13 @@ class _HomeTopTabsState extends State<HomeTopTabs>
   void _handleTabSelection() {
     setState(() {
       widget.colorVal = 0xFFF1E6FF;
+      // _admin_detailState();
     });
   }
 
+  var api = '';
   var radius = Radius.circular(10);
   var radius1 = Radius.circular(50);
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -57,66 +59,66 @@ class _HomeTopTabsState extends State<HomeTopTabs>
               unselectedLabelColor: Colors.black,
               tabs: <Widget>[
                 Tab(
-                  icon: Icon(FontAwesomeIcons.compass,
+                  icon: Icon(Icons.people_alt_rounded,
                       color: _tabController.index == 0
                           ? Color(widget.colorVal)
-                          : Colors.black),
-                  child: Text('For You',
+                          : Colors.white),
+                  child: Text('Dashboard',
                       style: TextStyle(
                           color: _tabController.index == 0
                               ? Color(widget.colorVal)
                               : Colors.black)),
                 ),
                 Tab(
-                  icon: Icon(Icons.wallet_rounded,
+                  icon: Icon(Icons.phone_android_rounded,
                       color: _tabController.index == 1
                           ? Color(widget.colorVal)
-                          : Colors.black),
-                  child: Text('Top Charts',
+                          : Colors.white),
+                  child: Text('Postpaid/prepaid',
                       style: TextStyle(
                           color: _tabController.index == 1
                               ? Color(widget.colorVal)
                               : Colors.black)),
                 ),
                 Tab(
-                  icon: Icon(FontAwesomeIcons.shapes,
+                  icon: Icon(Icons.compare_arrows_sharp,
                       color: _tabController.index == 2
                           ? Color(widget.colorVal)
-                          : Colors.black),
-                  child: Text('Categories',
+                          : Colors.white),
+                  child: Text('Transaction History',
                       style: TextStyle(
                           color: _tabController.index == 2
                               ? Color(widget.colorVal)
                               : Colors.black)),
                 ),
                 Tab(
-                  icon: Icon(FontAwesomeIcons.solidBookmark,
+                  icon: Icon(Icons.satellite_alt_outlined,
                       color: _tabController.index == 3
                           ? Color(widget.colorVal)
-                          : Colors.black),
-                  child: Text('Family',
+                          : Colors.white),
+                  child: Text('DTH Recharge',
                       style: TextStyle(
                           color: _tabController.index == 3
                               ? Color(widget.colorVal)
                               : Colors.black)),
                 ),
                 Tab(
-                  icon: Icon(FontAwesomeIcons.solidStar,
+                  icon: Icon(Icons.electric_bolt_rounded,
                       color: _tabController.index == 4
                           ? Color(widget.colorVal)
-                          : Colors.black),
-                  child: Text('Early Access',
+                          : Color.fromARGB(255, 253, 250, 250)),
+                  child: Text('Electricity',
                       style: TextStyle(
                           color: _tabController.index == 4
                               ? Color(widget.colorVal)
                               : Colors.black)),
                 ),
                 Tab(
-                  icon: Icon(FontAwesomeIcons.lockOpen,
+                  icon: Icon(Icons.grass,
                       color: _tabController.index == 5
                           ? Color(widget.colorVal)
-                          : Colors.black),
-                  child: Text('Editors choice',
+                          : Colors.white),
+                  child: Text('Gas',
                       style: TextStyle(
                           color: _tabController.index == 5
                               ? Color(widget.colorVal)
@@ -138,16 +140,17 @@ class _HomeTopTabsState extends State<HomeTopTabs>
             controller: _tabController,
             children: <Widget>[
               const current_user_details(),
-              const phoneRecgargeMain(),
+              recharge_access_check(),
               const currentUserPayment(),
               // Container(
               //   height: 200.0,
               //   child: Center(child: Text('Category')),
               // ),
-              Container(
-                height: 200.0,
-                child: Center(child: Text('Family')),
-              ),
+              const dynamicTable(),
+              // Container(
+              //   height: 200.0,
+              //   child: Center(child: Text('Family')),
+              // ),
               Container(
                 height: 200.0,
                 child: Center(child: Text('Early Access')),
@@ -161,6 +164,14 @@ class _HomeTopTabsState extends State<HomeTopTabs>
         ),
       ),
     );
+  }
+}
+
+recharge_access_check() {
+  if (role == "Retailer") {
+    return phoneRecgargeMain();
+  } else {
+    return SignUpScreenTopImage();
   }
 }
 

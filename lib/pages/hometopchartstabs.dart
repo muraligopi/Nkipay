@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeTopChartsTabs extends StatefulWidget {
   //final Widget child;
@@ -16,7 +15,7 @@ class _HomeTopChartsTabsState extends State<HomeTopChartsTabs> {
       child: ListView(
         scrollDirection: Axis.vertical,
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: 5.0,
           ),
           ImageContainer(),

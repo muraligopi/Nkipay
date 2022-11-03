@@ -20,6 +20,7 @@ class HomePage extends StatefulWidget {
 }
 
 Color PrimaryColor = Color(0xFFF1E6FF);
+var api = '';
 
 class _HomePageState extends State<HomePage> {
   @override
@@ -43,10 +44,7 @@ class _HomePageState extends State<HomePage> {
                   height: 120,
                 ),
 
-                // Container(
-                //   padding: const EdgeInsets.only(top: 8.0),
-                //   child: _GooglePlayAppBar(),
-                // ),
+                // Container(padding: const EdgeInsets.only(top: 8.0), child: ),
                 Container(
                   child: IconButton(
                       tooltip: "Log out",
@@ -57,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {
                         FirebaseAuth.instance.signOut().then((value) {
                           showSnackBar(context, "Logged out successfully.....");
-                          //Navigator.pop(context);
+                          Navigator.pop(context);
                         }).onError((error, stackTrace) {
                           showSnackBar(context, "$error");
                         });
@@ -103,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                 Tab(
                   child: Container(
                     child: Text(
-                      'Recharge',
+                      'Recharge & Pay Bills',
                       style: GoogleFonts.josefinSans(
                         fontWeight: FontWeight.w900,
                         color: Color.fromARGB(255, 14, 3, 3),
@@ -118,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                 Tab(
                   child: Container(
                     child: Text(
-                      'Pay Bills',
+                      'API',
                       style: GoogleFonts.josefinSans(
                         fontWeight: FontWeight.w900,
                         color: Color.fromARGB(255, 14, 3, 3),
@@ -131,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                 Tab(
                   child: Container(
                     child: Text(
-                      'Money Transfer',
+                      'Users',
                       style: GoogleFonts.josefinSans(
                         fontWeight: FontWeight.w900,
                         color: Color.fromARGB(255, 14, 3, 3),
@@ -144,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                 Tab(
                   child: Container(
                     child: Text(
-                      '',
+                      'History',
                       style: GoogleFonts.josefinSans(
                         fontWeight: FontWeight.w900,
                         color: Color.fromARGB(255, 14, 3, 3),
@@ -157,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                 Tab(
                   child: Container(
                     child: Text(
-                      'MUSIC',
+                      'Admin',
                       style: GoogleFonts.josefinSans(
                         fontWeight: FontWeight.w900,
                         color: Color.fromARGB(255, 14, 3, 3),
@@ -181,6 +179,43 @@ class _HomePageState extends State<HomePage> {
           )),
     );
   }
+}
+
+void _admin_detailState() {
+  child:
+  StreamBuilder(
+      stream: FirebaseFirestore.instance
+          .collection('users')
+          .where('email id', isEqualTo: 'gopi16567@gmail.com')
+          .snapshots(),
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (!snapshot.hasData) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        } else if (snapshot.hasError) {
+          return const Text('something went wrong');
+        }
+        return ListView(
+            children: snapshot.data!.docs.map((document) {
+          api = document['current_api'];
+          print(api);
+          return Column(
+            children: [
+              Center(
+                child: Container(
+                  child: Padding(
+                    padding: const EdgeInsets.all(defaultPadding),
+                    child: Column(
+                      children: const [],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          );
+        }).toList());
+      });
 }
 
 Widget _GooglePlayAppBar() {

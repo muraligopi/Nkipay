@@ -1,11 +1,6 @@
-import 'dart:html';
-import 'dart:math';
-
 import 'package:Nkipay/Screens/Login/components/forgotpassword.dart';
-import 'package:Nkipay/pages/homepage.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/already_have_an_account_acheck.dart';
@@ -99,11 +94,11 @@ class _LoginForm extends State<LoginWidget> {
           Hero(
             tag: "login_btn",
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => HomePage()));
-              },
-              //onPressed: loginUser,
+              // onPressed: () {
+              //   Navigator.of(context).pushReplacement(
+              //       MaterialPageRoute(builder: (context) => HomePage()));
+              // },
+              onPressed: loginUser,
               // () {
               //   auth
               //       .signInWithEmailAndPassword(

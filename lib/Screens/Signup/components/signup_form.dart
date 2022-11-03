@@ -1,13 +1,9 @@
-import 'package:Nkipay/Screens/Signup/otp.dart/otp_form.dart';
-import 'package:Nkipay/Screens/Signup/signup_otp.dart';
 import 'package:Nkipay/utils/authentication.dart';
-import 'package:Nkipay/utils/showSnackBar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+
 import '../../../components/already_have_an_account_acheck.dart';
 import '../../../pages/homepage.dart';
 import '../../../utils/constants.dart';
@@ -29,6 +25,8 @@ class signForm extends State<SignUpWidget> {
   RegExp pass_valid = RegExp(r"(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)");
   final emailid = TextEditingController();
   final password = TextEditingController();
+
+  final username = TextEditingController();
   final role = TextEditingController();
   // final auth = FirebaseAuth.instance;
 
@@ -36,10 +34,13 @@ class signForm extends State<SignUpWidget> {
     super.dispose();
     emailid.dispose();
     password.dispose();
+    role.dispose();
+    username.dispose();
   }
 
   bool validatePassword(String pass) {
     String _password = pass.trim();
+
     if (pass_valid.hasMatch(_password)) {
       return true;
     } else {
@@ -53,8 +54,6 @@ class signForm extends State<SignUpWidget> {
           email: emailid.text, password: password.text, context: context);
       //addUser();
       createUser(email: emailid.text);
-      showSnackBar(context,
-          "Congratulations, your account has been successfully created....");
     }
   }
 
@@ -82,7 +81,8 @@ class signForm extends State<SignUpWidget> {
       "current_Balance": 0.toInt(),
       "recharge_access": "true",
       "created by": user.email!,
-      "created at": DateTime.now()
+      "created at": DateTime.now(),
+      'username': username,
     };
     await docUser.set(json);
   }
@@ -126,6 +126,22 @@ class signForm extends State<SignUpWidget> {
               prefixIcon: Padding(
                 padding: EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.person),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+            child: TextFormField(
+              keyboardType: TextInputType.name,
+              textInputAction: TextInputAction.next,
+              controller: username,
+              cursorColor: kPrimaryColor,
+              decoration: const InputDecoration(
+                hintText: "Enter your name",
+                prefixIcon: Padding(
+                  padding: EdgeInsets.all(defaultPadding),
+                  child: Icon(Icons.emoji_people_sharp),
+                ),
               ),
             ),
           ),
@@ -180,11 +196,12 @@ class signForm extends State<SignUpWidget> {
               ),
             ),
           ),
+
           Padding(
             padding: const EdgeInsets.symmetric(vertical: defaultPadding),
             child: DropdownButton(
               value: dropdownvalue,
-              icon: Icon(Icons.keyboard_arrow_down),
+              icon: const Icon(Icons.keyboard_arrow_down),
               items: items.map((String items) {
                 return DropdownMenuItem(
                   value: items,

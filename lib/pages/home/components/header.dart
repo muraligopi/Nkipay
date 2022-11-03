@@ -1,15 +1,10 @@
-import 'package:Nkipay/Screens/Login/login_screen.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:Nkipay/models/header_item.dart';
 import 'package:Nkipay/provider/home.dart';
 import 'package:Nkipay/provider/theme.dart';
-import 'package:Nkipay/routes/routes.dart';
 import 'package:Nkipay/utils/constants.dart';
 import 'package:Nkipay/utils/globals.dart';
 import 'package:Nkipay/utils/screen_helper.dart';
@@ -209,16 +204,16 @@ class Header extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return WelcomeScreen();
+                      return const WelcomeScreen();
                     },
                   ),
                 );
               },
               child: Row(
-                children: [
-                  const Icon(Icons.login),
-                  const Text("Login"),
-                  const Text("/ Signup")
+                children: const [
+                  Icon(Icons.login),
+                  Text("Login"),
+                  Text("/ Signup")
                 ],
               ),
             ),

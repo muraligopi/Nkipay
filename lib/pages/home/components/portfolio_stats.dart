@@ -7,7 +7,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 final List<Stat> stats = [
   // Stat(count: "43", text: "Clients"),
-  Stat(count: "500+", text: "Trusted customers"),
+  Stat(count: "500+", text: "customers"),
   Stat(count: "4", text: "Awards"),
   Stat(count: "8+", text: "Years\nExperience"),
 ];

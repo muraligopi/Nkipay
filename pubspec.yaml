@@ -45,9 +45,10 @@ dependencies:
   shared_preferences: ^2.0.15
   google_sign_in: ^5.4.2
   email_validator: '^2.1.16'
-  cloud_firestore: ^3.5.1
+  cloud_firestore: 
   font_awesome_flutter: ^10.0.0
   universal_html: ^2.0.8
+  timeago: ^3.3.0
   
   
 
