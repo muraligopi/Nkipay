@@ -1,3 +1,4 @@
+import 'package:Nkipay/Screens/Welcome/components/welcome_image_1.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/background.dart';
@@ -51,7 +52,7 @@ class MobileWelcomeScreen extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        const WelcomeImage(),
+        const WelcomeImage1(),
         Row(
           children: const [
             Spacer(),

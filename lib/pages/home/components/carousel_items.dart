@@ -22,6 +22,14 @@ List<CarouselItemModel> carouselItems(double carouselContainerHeight) =>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    //const SizedBox(height: defaultPadding / 2),
+                    // SizedBox(
+                    //   height: defaultPadding * 10,
+                    //   width: defaultPadding * 10,
+                    //   child: Container(
+                    //     child: Lottie.asset("assets/home_top.json"),
+                    //   ),
+                    // ),
                     Text(
                       "NKipay",
                       style: GoogleFonts.josefinSans(
@@ -57,6 +65,7 @@ List<CarouselItemModel> carouselItems(double carouselContainerHeight) =>
                     ),
                     const SizedBox(
                       width: 10,
+                      //height: 25.0,
                     ),
                     // const SizedBox(
                     //   height: 25.0,
@@ -102,7 +111,7 @@ List<CarouselItemModel> carouselItems(double carouselContainerHeight) =>
                                 width: 20,
                                 height: 20,
                                 margin: const EdgeInsets.all(10),
-                                child: Image.asset(e.title),
+                                //child: Image.asset(e.title),
                               ),
                             ))
                         .toList(),

@@ -1,4 +1,3 @@
-// import 'package:Nkipay/pages/home/home.dart';
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +40,7 @@ class MyApp extends StatelessWidget {
               : MyThemes.lightTheme,
           child: MaterialApp(
             title: "Welcome to NKipay",
+
             debugShowCheckedModeBanner: false,
             themeMode: ref.watch(themeProvider).themeMode,
             theme: MyThemes.lightTheme,

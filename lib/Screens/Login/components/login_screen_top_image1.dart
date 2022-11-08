@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 
 import 'package:Nkipay/utils/constants.dart';
+import '../../Signup/components/socal_sign_up.dart';
 
-class LoginScreenTopImage extends StatelessWidget {
-  const LoginScreenTopImage({
+class LoginScreenTopImage1 extends StatelessWidget {
+  const LoginScreenTopImage1({
     Key? key,
   }) : super(key: key);
 
@@ -13,7 +15,7 @@ class LoginScreenTopImage extends StatelessWidget {
     return Column(
       children: [
         Text(
-          "LOGIN TO NKipay",
+          "Welcome TO NKipay",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         //SizedBox(height: defaultPadding * 2),
@@ -21,9 +23,10 @@ class LoginScreenTopImage extends StatelessWidget {
           children: <Widget>[
             const Spacer(),
             Flexible(
-                flex: 8,
-                fit: FlexFit.loose,
-                child: Lottie.asset("assets/lets-chat.json")),
+              flex: 2,
+              fit: FlexFit.loose,
+              child: SvgPicture.asset("assets/icons/login.svg"),
+            ),
             const Spacer(),
             // Expanded(
             //   flex: 2,

@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                 Tab(
                   child: Container(
                     child: Text(
-                      'Recharge & Pay Bills',
+                      'Pay Bills',
                       style: GoogleFonts.josefinSans(
                         fontWeight: FontWeight.w900,
                         color: Color.fromARGB(255, 14, 3, 3),
@@ -142,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                 Tab(
                   child: Container(
                     child: Text(
-                      'History',
+                      'Report',
                       style: GoogleFonts.josefinSans(
                         fontWeight: FontWeight.w900,
                         color: Color.fromARGB(255, 14, 3, 3),
@@ -155,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                 Tab(
                   child: Container(
                     child: Text(
-                      'Admin',
+                      'Settings',
                       style: GoogleFonts.josefinSans(
                         fontWeight: FontWeight.w900,
                         color: Color.fromARGB(255, 14, 3, 3),

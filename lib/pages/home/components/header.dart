@@ -12,6 +12,7 @@ import 'package:Nkipay/utils/utils.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../Screens/Welcome/welcome_screen.dart';
+import '../../../routes/routes.dart';
 
 class HeaderLogo extends StatelessWidget {
   const HeaderLogo({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class HeaderLogo extends StatelessWidget {
           cursor: SystemMouseCursors.click,
           child: GestureDetector(
             onTap: () {
-              //Navigator.pushNamed(context, Routes.initial);
+              Navigator.pushNamed(context, Routes.initial);
             },
             child: RichText(
               text: TextSpan(

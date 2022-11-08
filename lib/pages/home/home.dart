@@ -1,9 +1,6 @@
-import 'package:Nkipay/pages/home/home.dart';
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get/get_navigation/src/nav2/get_nav_config.dart';
-import 'package:get/get_navigation/src/nav2/get_router_delegate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:Nkipay/models/project.dart';
 import 'package:Nkipay/pages/home/components/about.dart';
@@ -12,14 +9,11 @@ import 'package:Nkipay/pages/home/components/footer.dart';
 import 'package:Nkipay/pages/home/components/header.dart';
 import 'package:Nkipay/pages/home/components/portfolio_stats.dart';
 import 'package:Nkipay/pages/home/components/project.dart';
-import 'package:Nkipay/pages/home/components/service.dart';
 import 'package:Nkipay/provider/home.dart';
 import 'package:Nkipay/provider/theme.dart';
 import 'package:Nkipay/utils/globals.dart';
 import 'package:Nkipay/utils/screen_helper.dart';
 import 'package:Nkipay/widgets/switch.dart';
-
-import '../../routes/routes.dart';
 
 class Home extends ConsumerStatefulWidget {
   const Home({Key? key}) : super(key: key);

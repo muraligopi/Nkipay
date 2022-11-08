@@ -1,10 +1,8 @@
 import 'package:Nkipay/pages/homepage.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 
-import '../Screens/Welcome/welcome_screen.dart';
 import '../pages/home/home.dart';
 import '../utils/constants.dart';
 

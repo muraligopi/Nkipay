@@ -4,8 +4,8 @@ import 'package:lottie/lottie.dart';
 
 import '../../../utils/constants.dart';
 
-class WelcomeImage extends StatelessWidget {
-  const WelcomeImage({
+class WelcomeImage1 extends StatelessWidget {
+  const WelcomeImage1({
     Key? key,
   }) : super(key: key);
 
@@ -24,29 +24,13 @@ class WelcomeImage extends StatelessWidget {
           children: <Widget>[
             const Spacer(),
             Flexible(
-              flex: 8,
+              flex: 2,
               fit: FlexFit.loose,
-              child: Lottie.asset("assets/chat.json"),
+              child: SvgPicture.asset(
+                "assets/icons/chat.svg",
+              ),
             ),
-            // SizedBox(
-            //   child: Container(
-            //     child: Lottie.asset("assets/chat.json"),
-            //   ),
-            // ),
             const Spacer(),
-            // Flexible(
-            //     flex: 8,
-            //     fit: FlexFit.tight,
-            //     //child: Lottie.asset("assets/lets-chat.json")),
-            //     child: SvgPicture.asset("assets/icons/signup.svg")),
-            //const Spacer(),
-            // Expanded(
-            //   flex: 2,
-
-            //   child: Lottie.asset(
-            //       "assets/signup.json"), //https://youtu.be/lq81prXvV6M
-            //   //child: SvgPicture.asset("assets/icons/signup.svg"),
-            // ),
           ],
           // children: [
           //   const Spacer(),

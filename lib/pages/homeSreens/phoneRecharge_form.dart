@@ -1,14 +1,13 @@
-import 'package:Nkipay/pages/homeSreens/current_user_details.dart';
-import 'package:Nkipay/pages/homeSreens/current_user_trans.dart';
-import 'package:Nkipay/pages/homepage.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// ignore: file_names
 
-import '../../../components/already_have_an_account_acheck.dart';
-import '../../Screens/Signup/signup_otp.dart';
+import 'package:Nkipay/pages/homeSreens/current_user_details.dart';
+import 'package:Nkipay/pages/homeSreens/views/arecharge.dart';
+import 'package:Nkipay/pages/homepage.dart';
+import 'package:Nkipay/utils/showSnackBar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import '../../utils/constants.dart';
+import 'package:http/http.dart' as http;
 
 class phoneRecgargeForm extends StatefulWidget {
   const phoneRecgargeForm({
@@ -18,8 +17,6 @@ class phoneRecgargeForm extends StatefulWidget {
   @override
   State<phoneRecgargeForm> createState() => _phoneRecgargeFormState();
 }
-
-String cur_api = '';
 
 class _phoneRecgargeFormState extends State<phoneRecgargeForm> {
   final phonenumber = TextEditingController();
@@ -118,13 +115,46 @@ class _phoneRecgargeFormState extends State<phoneRecgargeForm> {
                 ),
               ),
             ),
+            Row(
+              children: [],
+            ),
             const SizedBox(height: defaultPadding / 2),
             ElevatedButton(
-              onPressed: () {
-                createTransactions(
-                    number: phonenumber.text, enteramount: amount.text);
-                create_user_Transactions(
-                    number: phonenumber.text, enteramount: amount.text);
+              onPressed: () async {
+                // createTransactions(
+                //     number: phonenumber.text, enteramount: amount.text);
+                // create_user_Transactions(
+                //     number: phonenumber.text, enteramount: amount.text);
+
+                // var Client = http.Client();
+                // var token = 'OT9sCg2FAS2VC4x';
+                // var url = Uri.parse(
+                //     'http://arecharge.in/api/lapubal.php?token=' + token);
+                // if (response.statusCode == 200) {
+                //   showSnackBar(context, 'successful');
+
+                //   return debugPrint('success');
+                // } else if (response.statusCode == 400) {
+                //   showSnackBar(context, 'fail bad req');
+                // } else {
+                //   debugPrint('success');
+                //   showSnackBar(context, 'successful');
+                // }
+
+                var token = 'OT9sCg2FAS2VC4x';
+                var response = await arecharge1()
+                    //.get('v7/balance-check?')
+                    .get(
+                  'https://cros-anywhere.herokuapp.com/http://arecharge.in/api/lapubal.php?token=',
+                )
+                    .catchError((err) {
+                  showSnackBar(context, err.toString());
+                });
+                if (response == null) {
+                  showSnackBar(context, 'fail');
+                } else if (response != null) {
+                  showSnackBar(context, 'successful');
+                }
               },
               child: Text("Pay".toUpperCase()),
             ),
@@ -159,7 +189,6 @@ class _phoneRecgargeFormState extends State<phoneRecgargeForm> {
     );
   }
 }
-
 
 // Widget builduser_payments(User user_payments) => ListTile(
 //       leading: CircleAvatar(child: Text('${user_payments.amount}')),

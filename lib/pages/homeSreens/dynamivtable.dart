@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 import '../homepage.dart';
 
@@ -18,12 +17,13 @@ class _dynamicTableState extends State<dynamicTable> {
   List columnData = [
     //'Transaction_id',
     "phone_number".toString(),
-    //"Member_id",
+    //Member_id,
     'user_email'.toString(),
     //'Service',
     //'Provider',
     //'Account',
-    'amount'.toString(),
+    'pay_at',
+    'amount',
     //'Credit',
     //'Debit',
     //'Balance',
@@ -63,7 +63,7 @@ class _dynamicTableState extends State<dynamicTable> {
   void _runFilter(String enteredKeyword, String filter) {
     print(enteredKeyword);
     print(filter);
-    // print(_allData);
+    print(_allData);
     List<Map<String, dynamic>> results = [];
     if (enteredKeyword.isEmpty) {
       results = _allData;
@@ -166,7 +166,7 @@ class _dynamicTableState extends State<dynamicTable> {
     var collection = FirebaseFirestore.instance.collection('Transaction');
     collection
         .doc('$id')
-        .update({'Status': '$status'}) // <-- Updated data
+        .update({'Status': '$status'.toString()}) // <-- Updated data
         .then((_) => setState(() {
               Navigator.pushReplacement(
                   context,
@@ -254,10 +254,9 @@ class _dynamicTableState extends State<dynamicTable> {
                   // DataCell(Text(userData['Transaction_id'])),
                   DataCell(Text(userData['phone_number'].toString())),
                   DataCell(Text(userData['user_email'].toString())),
-                  // DataCell(Text(userData['pay_at'])),
                   // DataCell(Text(userData['Service'])),
-                  //DataCell(Text(userData['Provider'])),
-                  //DataCell(Text(userData['Account'])),
+                  //DataCell(Text(userData['Provider'] )),
+                  DataCell(Text(userData['pay_at'].toString())),
                   DataCell(Text(userData['amount'].toString())),
                   //DataCell(Text(userData['Credit'])),
                   //DataCell(Text(userData['Debit'])),
@@ -275,7 +274,7 @@ class _dynamicTableState extends State<dynamicTable> {
                             ),
                             IconButton(
                                 onPressed: () {
-                                  //updateStatus(userData['Uid']);
+                                  updateStatus(userData['Uid']);
                                 },
                                 icon: Icon(Icons.edit))
                           ],

@@ -1,12 +1,11 @@
 import 'package:Nkipay/pages/homeSreens/current_user_details.dart';
 import 'package:Nkipay/pages/homeSreens/phoneRechargeMain.dart';
+import 'package:Nkipay/pages/homeSreens/views/arecharge.dart';
 import 'package:Nkipay/pages/homepage.dart';
 
 import 'package:Nkipay/utils/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../Screens/Signup/components/sign_up_top_image.dart';
 import 'homeSreens/current_user_trans.dart';
@@ -26,6 +25,7 @@ class _HomeTopTabsState extends State<HomeTopTabs>
   @override
   void initState() {
     super.initState();
+
     _tabController = new TabController(vsync: this, length: 6);
     _tabController.addListener(_handleTabSelection);
   }
@@ -55,8 +55,8 @@ class _HomeTopTabsState extends State<HomeTopTabs>
               controller: _tabController,
               isScrollable: true,
               indicatorWeight: 2.0,
-              indicatorColor: Color.fromARGB(255, 244, 235, 232),
-              unselectedLabelColor: Colors.black,
+              indicatorColor: Colors.black,
+              unselectedLabelColor: Color.fromARGB(255, 253, 250, 250),
               tabs: <Widget>[
                 Tab(
                   icon: Icon(Icons.people_alt_rounded,
@@ -125,15 +125,21 @@ class _HomeTopTabsState extends State<HomeTopTabs>
                               : Colors.black)),
                 ),
               ],
-              indicator: ShapeDecoration(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                    topRight: radius,
-                    topLeft: radius,
-                    bottomLeft: radius1,
-                    bottomRight: radius1,
-                  )),
-                  color: Colors.white60),
+              // padding: const EdgeInsets.symmetric(
+              //     horizontal: defaultPadding, vertical: defaultPadding),
+              indicator: BoxDecoration(
+                  color: kPrimaryLightColor,
+                  borderRadius: BorderRadius.circular(defaultPadding * 2)),
+              // indicator: ShapeDecoration(
+              //     shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.only(
+              //         topRight: radius,
+              //         topLeft: radius,
+              //         bottomLeft: radius1,
+              //         bottomRight: radius1,
+              //       ),
+              //     ),
+              //     color: Colors.white60),
             ),
           ),
           body: TabBarView(
@@ -147,14 +153,15 @@ class _HomeTopTabsState extends State<HomeTopTabs>
               //   child: Center(child: Text('Category')),
               // ),
               const dynamicTable(),
-              // Container(
-              //   height: 200.0,
-              //   child: Center(child: Text('Family')),
-              // ),
               Container(
                 height: 200.0,
-                child: Center(child: Text('Early Access')),
+                child: Center(child: Text('Family')),
               ),
+              //const arecharge1(),
+              // Container(
+              //   height: 200.0,
+              //   child: Center(child: Text('Early Access')),
+              // ),
               Container(
                 height: 200.0,
                 child: Center(child: Text('Editor Choice')),

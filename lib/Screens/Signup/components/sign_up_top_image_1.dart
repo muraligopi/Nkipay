@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../utils/constants.dart';
 
-class SignUpScreenTopImage extends StatelessWidget {
-  const SignUpScreenTopImage({
+class SignUpScreenTopImage1 extends StatelessWidget {
+  const SignUpScreenTopImage1({
     Key? key,
   }) : super(key: key);
 
@@ -14,7 +15,7 @@ class SignUpScreenTopImage extends StatelessWidget {
     return Column(
       children: [
         Text(
-          "Postpaid".toUpperCase(),
+          "Sign Up".toUpperCase(),
           style: GoogleFonts.josefinSans(
             fontWeight: FontWeight.w900,
             color: Color.fromARGB(255, 14, 3, 3),
@@ -27,9 +28,10 @@ class SignUpScreenTopImage extends StatelessWidget {
           children: <Widget>[
             const Spacer(),
             Flexible(
-                flex: 8,
-                fit: FlexFit.loose,
-                child: Lottie.asset("assets/signup.json")),
+              flex: 2,
+              fit: FlexFit.loose,
+              child: SvgPicture.asset("assets/icons/signup.svg"),
+            ),
             const Spacer(),
             // Expanded(
             //   flex: 2,

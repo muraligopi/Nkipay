@@ -1,3 +1,4 @@
+import 'package:Nkipay/Screens/Login/components/login_screen_top_image1.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/background.dart';
@@ -50,7 +51,7 @@ class MobileLoginScreen extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        const LoginScreenTopImage(),
+        const LoginScreenTopImage1(),
         Row(
           children: const [
             Spacer(),

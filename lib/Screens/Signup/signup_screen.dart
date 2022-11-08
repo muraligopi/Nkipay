@@ -1,3 +1,4 @@
+import 'package:Nkipay/Screens/Signup/components/sign_up_top_image_1.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/background.dart';
@@ -52,7 +53,7 @@ class MobileSignupScreen extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        const SignUpScreenTopImage(),
+        const SignUpScreenTopImage1(),
         Row(
           children: const [
             Spacer(),
