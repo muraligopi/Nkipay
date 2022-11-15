@@ -48,13 +48,13 @@ class _HomeTopTabsState extends State<HomeTopTabs>
         padding: const EdgeInsets.symmetric(vertical: defaultPadding),
         child: Scaffold(
           appBar: AppBar(
-            toolbarHeight: 5.0,
+            toolbarHeight: 1.0,
             automaticallyImplyLeading: false,
             backgroundColor: kPrimaryColor,
             bottom: TabBar(
               controller: _tabController,
               isScrollable: true,
-              indicatorWeight: 2.0,
+              indicatorWeight: 1.0,
               indicatorColor: Colors.black,
               unselectedLabelColor: Color.fromARGB(255, 253, 250, 250),
               tabs: <Widget>[
@@ -128,7 +128,7 @@ class _HomeTopTabsState extends State<HomeTopTabs>
               // padding: const EdgeInsets.symmetric(
               //     horizontal: defaultPadding, vertical: defaultPadding),
               indicator: BoxDecoration(
-                  color: kPrimaryLightColor,
+                  color: Colors.black45,
                   borderRadius: BorderRadius.circular(defaultPadding * 2)),
               // indicator: ShapeDecoration(
               //     shape: RoundedRectangleBorder(

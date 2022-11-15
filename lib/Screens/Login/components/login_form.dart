@@ -2,9 +2,9 @@ import 'package:Nkipay/Screens/Login/components/forgotpassword.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import '../../../components/already_have_an_account_acheck.dart';
 import 'package:Nkipay/utils/constants.dart';
+import '../../../pages/homepage.dart';
 import '../../../utils/authentication.dart';
 import '../../Signup/signup_screen.dart';
 
@@ -21,6 +21,7 @@ class _LoginForm extends State<LoginWidget> {
   final emailid = TextEditingController();
   final password = TextEditingController();
 
+  @override
   void dispose() {
     emailid.dispose();
     password.dispose();
@@ -54,6 +55,7 @@ class _LoginForm extends State<LoginWidget> {
               } else if (emailid == null || emailid.isEmpty) {
                 return "Enter your email id";
               }
+              return null;
             },
             onSaved: (email) {},
             // onChanged: (value) {
@@ -65,7 +67,7 @@ class _LoginForm extends State<LoginWidget> {
               hintText: "Your email",
               prefixIcon: Padding(
                 padding: EdgeInsets.all(defaultPadding),
-                child: Icon(Icons.person),
+                child: Icon(Icons.email_outlined),
               ),
             ),
           ),
@@ -77,10 +79,10 @@ class _LoginForm extends State<LoginWidget> {
               obscureText: true,
               cursorColor: kPrimaryColor,
               onChanged: (value) {},
-              //   setState(() {
-              //     _password = value.trim();
-              //   });
-              // },
+              // setState(() {
+              //   _password = value.trim();
+              // });
+              //},
               decoration: const InputDecoration(
                 hintText: "Your password",
                 prefixIcon: Padding(

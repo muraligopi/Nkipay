@@ -1,5 +1,7 @@
+import 'package:Nkipay/pages/homeSreens/plan_api_/check_user_op.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'homeSreens/pay_recharge/payrecharge.dart';
+import 'homeSreens/views/arecharge.dart';
 
 class GameTopChartsTabs extends StatefulWidget {
   int colorVal;
@@ -121,75 +123,73 @@ class _GameTopChartsTabsState extends State<GameTopChartsTabs>
         children: <Widget>[
           SizedBox(height: 40.0),
           ListTile(
-            leading: Container(
-              height: 100.0,
-              width: 100.0,
-              decoration: new BoxDecoration(
-                image: DecorationImage(
-                  image: new NetworkImage(
-                      'https://lh3.googleusercontent.com/sjyLUoLz9dM6nQgn3XiyzUrMBC_oAD_MxHtMGrLha0UXDqFpwAOUaWjqgd0WIPQUKg=s180-rw'),
-                  fit: BoxFit.fill,
-                ),
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-            ),
-            title: Text(
-              'DRAGON BALL',
-            ),
-            subtitle: Text('Bandai Namco'),
+            // leading: Container(
+            //   height: 100.0,
+            //   width: 100.0,
+            //   decoration: new BoxDecoration(
+            //     image: DecorationImage(
+            //       image: new NetworkImage(
+            //           'https://lh3.googleusercontent.com/sjyLUoLz9dM6nQgn3XiyzUrMBC_oAD_MxHtMGrLha0UXDqFpwAOUaWjqgd0WIPQUKg=s180-rw'),
+            //       fit: BoxFit.fill,
+            //     ),
+            //     borderRadius: BorderRadius.circular(20.0),
+            //   ),
+            // ),
+            title: Text('user oper: ' + pay_recharge_oper),
+            subtitle: Text('user circle: ' + pay_recharge_circle),
           ),
           SizedBox(height: 40.0),
           ListTile(
-            leading: Container(
-              height: 100.0,
-              width: 100.0,
-              decoration: new BoxDecoration(
-                image: DecorationImage(
-                  image: new NetworkImage(
-                      'https://lh3.googleusercontent.com/IUmxAtr8x20F50Rg0qFLPvN1KfGzB57wpRPzzcbx1Cy0tAbyPxR2HZIx8z3_ywSwkYV0=s180-rw'),
-                  fit: BoxFit.fill,
-                ),
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-            ),
+            // leading: Container(
+            //   height: 100.0,
+            //   width: 100.0,
+            //   decoration: new BoxDecoration(
+            //     image: DecorationImage(
+            //       image: new NetworkImage(
+            //           'https://lh3.googleusercontent.com/IUmxAtr8x20F50Rg0qFLPvN1KfGzB57wpRPzzcbx1Cy0tAbyPxR2HZIx8z3_ywSwkYV0=s180-rw'),
+            //       fit: BoxFit.fill,
+            //     ),
+            //     borderRadius: BorderRadius.circular(20.0),
+            //   ),
+            // ),
             title: Text(
-              'Jewels Classic',
+              "plan_api_Operator :" + plan_api_Operator,
             ),
-            subtitle: Text('Jewel - Lazy Chick'),
+            subtitle: Text("plan_api_number" + plan_api_number),
           ),
           SizedBox(height: 40.0),
           ListTile(
-            leading: Container(
-              height: 100.0,
-              width: 100.0,
-              decoration: new BoxDecoration(
-                image: DecorationImage(
-                  image: new NetworkImage(
-                      'https://lh3.googleusercontent.com/RHEi0Ned02-oGl6BJdvHNFiJFSX9ZCD2aFW4By_vOflNo0ton3QgQ90fZTk2b7tal6cR=s180-rw'),
-                  fit: BoxFit.fill,
-                ),
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-            ),
+            // leading: Container(
+            //   height: 100.0,
+            //   width: 100.0,
+            //   decoration: new BoxDecoration(
+            //     image: DecorationImage(
+            //       image: new NetworkImage(
+            //           'https://lh3.googleusercontent.com/RHEi0Ned02-oGl6BJdvHNFiJFSX9ZCD2aFW4By_vOflNo0ton3QgQ90fZTk2b7tal6cR=s180-rw'),
+            //       fit: BoxFit.fill,
+            //     ),
+            //     borderRadius: BorderRadius.circular(20.0),
+            //   ),
+            // ),
             title: Text(
-              'Street Racing 3D',
+              'arecharge_balance :' + arecharge_balance,
             ),
-            subtitle: Text('Ivy Racing'),
+            subtitle: Text('arecharge_resText :' + arecharge_resText),
           ),
           SizedBox(height: 40.0),
           ListTile(
-            leading: Container(
-              height: 100.0,
-              width: 100.0,
-              decoration: new BoxDecoration(
-                image: DecorationImage(
-                  image: new NetworkImage(
-                      'https://lh3.googleusercontent.com/6pAKrBga5LKR2Gz0Ag_VOpB7n2GfHvpdWFgLAlYUbgGZzWZQijTI0PS2k9H4HW3DbQ=s180-rw'),
-                  fit: BoxFit.fill,
-                ),
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-            ),
+            // leading: Container(
+            //   height: 100.0,
+            //   width: 100.0,
+            //   decoration: new BoxDecoration(
+            //     image: DecorationImage(
+            //       image: new NetworkImage(
+            //           'https://lh3.googleusercontent.com/6pAKrBga5LKR2Gz0Ag_VOpB7n2GfHvpdWFgLAlYUbgGZzWZQijTI0PS2k9H4HW3DbQ=s180-rw'),
+            //       fit: BoxFit.fill,
+            //     ),
+            //     borderRadius: BorderRadius.circular(20.0),
+            //   ),
+            // ),
             title: Text(
               'Dream League Soccer 2019',
             ),

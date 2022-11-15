@@ -25,7 +25,7 @@ class _current_user_detailsState extends State<current_user_details> {
   }
 
   final List<String> imgList = [
-    'https://lh3.googleusercontent.com/GJAnttuWVk8IcpLlkMVMjyPWkgGc1-8_kFGoKa5GDP21rMKZt4AztM-hn5Q6WQdKFEg=w200-h300-rw',
+    'https://lh3.googleusercontent.com/GJAnttuWVk8IcpLlkMVMjyPWkgGc1-8_kFGoKa5GDP21rMKZt4AztM-hn5Q6WQdKFEg=w400-h600-rw',
     'https://lh3.googleusercontent.com/gNBb6s2J9aRrQE8wk6mppKbb46uYcW1p5EuzknTZF3Ds6hYM9QrWgO8rdlQDyY2A7Vmi=w200-h300-rw',
     'https://lh3.googleusercontent.com/IGPFCdnnT8Sp1kI___pIWlWFRlLaKgAzu7eP_QXw0FbZQ_gg3WvXqbhbiWaE9_hVEGd4Bw=w200-h300-rw',
     'https://lh3.googleusercontent.com/GVpOcjU50jtPmlNbB331263RgHv_NEqE-FnweqvUWleO94Ckvrznw05kwUGk1oKp5GA=w200-h300-rw',
@@ -40,7 +40,7 @@ class _current_user_detailsState extends State<current_user_details> {
         children: <Widget>[
           admin(),
           const SizedBox(
-            height: 10.0,
+            height: 5.0,
           ),
           userdetail(),
           const SizedBox(
@@ -56,7 +56,7 @@ class _current_user_detailsState extends State<current_user_details> {
     return CarouselSlider(
       options: CarouselOptions(
         viewportFraction: 0.9,
-        height: 200,
+        height: 600,
         aspectRatio: 0.8,
         autoPlay: true,
         enlargeCenterPage: true,
@@ -220,7 +220,7 @@ class _current_user_detailsState extends State<current_user_details> {
                 cur_bal = document['current_Balance'];
                 role = document['role'];
                 //api = document['current_api'];
-                print(cur_bal.runtimeType);
+                print(cur_bal);
 
                 return Column(
                   children: [
@@ -250,7 +250,7 @@ class _current_user_detailsState extends State<current_user_details> {
                                   color:
                                       const Color.fromARGB(255, 247, 243, 243),
                                   // height: 1.3,
-                                  fontSize: 16.0,
+                                  fontSize: 14.0,
                                 ),
                               ),
                               Text(
@@ -321,3 +321,127 @@ class _current_user_detailsState extends State<current_user_details> {
     );
   }
 }
+
+// Widget userdetail1() {
+//   return StreamBuilder<Object>(
+//       stream: null,
+//       builder: (context, snapshot) {
+//         return SizedBox(
+//           width: MediaQuery.of(context).size.width,
+//           height: MediaQuery.of(context).size.height / 10,
+//           child: Container(
+//             // width: MediaQuery.of(context).size.width / 4,
+//             // height: MediaQuery.of(context).size.height / 3,
+//             child: Padding(
+//               padding: const EdgeInsets.symmetric(),
+//               // padding: const EdgeInsets.all(18.0),
+//               child: StreamBuilder(
+//                   stream: FirebaseFirestore.instance
+//                       .collection('users')
+//                       .where('email id', isEqualTo: user.email!)
+//                       .snapshots(),
+//                   //.snapshots(),
+//                   builder: (BuildContext context,
+//                       AsyncSnapshot<QuerySnapshot> snapshot) {
+//                     if (!snapshot.hasData) {
+//                       return const Center(
+//                         child: CircularProgressIndicator(),
+//                       );
+//                     } else if (snapshot.hasError) {
+//                       return const Text('something went wrong');
+//                     }
+//                     return ListView(
+//                         children: snapshot.data!.docs.map((document) {
+//                       cur_bal = document['current_Balance'];
+//                       role = document['role'];
+//                       //api = document['current_api'];
+//                       print(cur_bal);
+
+//                       return Column(
+//                         children: [
+//                           Center(
+//                             child: Container(
+//                               //color: kPrimaryColor,
+
+//                               height: MediaQuery.of(context).size.height / 10,
+//                               width: MediaQuery.of(context).size.width,
+//                               //height: 100,
+//                               // decoration: BoxDecoration(
+//                               //     borderRadius: BorderRadius.circular(20),
+//                               //     gradient: const LinearGradient(colors: [
+//                               //       Colors.transparent,
+//                               //       kPrimaryLightColor
+//                               //       //Colors.white
+//                               //     ])),
+//                               child: Padding(
+//                                 padding: const EdgeInsets.symmetric(
+//                                     vertical: defaultPadding),
+//                                 // padding: const EdgeInsets.all(defaultPadding),
+//                                 child: Column(
+//                                   mainAxisAlignment: MainAxisAlignment.end,
+//                                   children: [
+//                                     // Text(
+//                                     //   "Username : " + document['username'],
+//                                     //   style: GoogleFonts.josefinSans(
+//                                     //     fontWeight: FontWeight.bold,
+//                                     //     color:
+//                                     //         const Color.fromARGB(255, 247, 243, 243),
+//                                     //     // height: 1.3,
+//                                     //     fontSize: 14.0,
+//                                     //   ),
+//                                     // ),
+//                                     Text(
+//                                       "Closing Balance : " +
+//                                           document['current_Balance']
+//                                               .toString(),
+//                                       style: GoogleFonts.josefinSans(
+//                                         fontWeight: FontWeight.bold,
+//                                         color: Color.fromARGB(255, 0, 0, 0),
+//                                         height: 1.3,
+//                                         fontSize: 16.0,
+//                                       ),
+//                                     ),
+//                                     // Text(
+//                                     //   "Email: " + document['email id'],
+//                                     //   style: GoogleFonts.josefinSans(
+//                                     //     fontWeight: FontWeight.bold,
+//                                     //     color:
+//                                     //         const Color.fromARGB(255, 244, 243, 243),
+//                                     //     height: 1.3,
+//                                     //     fontSize: 16.0,
+//                                     //   ),
+//                                     // ),
+//                                     // Text(
+//                                     //   "Role : " + document['role'].toString(),
+//                                     //   style: GoogleFonts.josefinSans(
+//                                     //     fontWeight: FontWeight.bold,
+//                                     //     color:
+//                                     //         const Color.fromARGB(255, 249, 248, 248),
+//                                     //     height: 1.3,
+//                                     //     fontSize: 16.0,
+//                                     //   ),
+//                                     // ),
+//                                     // Text(
+//                                     //   "current_api : " + cur_api,
+//                                     //   style: GoogleFonts.josefinSans(
+//                                     //     fontWeight: FontWeight.bold,
+//                                     //     color:
+//                                     //         const Color.fromARGB(255, 249, 248, 248),
+//                                     //     height: 1.3,
+//                                     //     fontSize: 16.0,
+//                                     //   ),
+//                                     // ),
+//                                   ],
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                         ],
+//                       );
+//                     }).toList());
+//                   }),
+//             ),
+//           ),
+//         );
+//       });
+// }

@@ -1,16 +1,18 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:Nkipay/pages/homeSreens/real_robo/real_robo_models.dart';
 import 'package:Nkipay/pages/homeSreens/views/models.dart';
 import 'package:Nkipay/pages/homeSreens/views/status_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 const String baseUrl = 'http://arecharge.in/api';
-String arecharge_balance = '';
-String arecharge_resText = '';
+String realRobo_status = '';
+String realRobo_msg = "";
+String realRobo_txid = '';
 
-class arecharge1 {
+class realRobo {
   // ignore: non_constant_identifier_names
   //var Client = http.Client();
   var now = DateTime.now().toString();
@@ -31,12 +33,14 @@ class arecharge1 {
     var response = await http.get(url, headers: _headers);
     if (response.statusCode == 200) {
       final praseid = json.decode(response.body);
-      final responsestring = ArechargeStatusModel.fromJson(praseid);
-      arecharge_balance = responsestring.bal!;
-      arecharge_resText = responsestring.resText!;
-      print(arecharge_balance + "  " + arecharge_resText);
-      print(responsestring.bal);
-      print(responsestring.resText);
+      final responsestring = RealRoboModel.fromJson(praseid);
+      realRobo_msg = responsestring.message!;
+      realRobo_status = responsestring.status!;
+      realRobo_txid = responsestring.txid!;
+      print("Real robo status");
+      print(responsestring.message);
+      print(responsestring.status);
+      print(responsestring.txid);
       return responsestring;
     } else if (response.statusCode == 404) {
       debugPrint('bad request');

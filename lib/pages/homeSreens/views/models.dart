@@ -39,9 +39,9 @@ class ArechargeModel {
   String? roffer;
   String? resText;
   String? token;
-  int? opid;
+  String? opid;
   String? stv;
-  int? cirleId;
+  String? cirleId;
   String? userId;
 
   factory ArechargeModel.fromJson(Map<String, dynamic> json) => ArechargeModel(

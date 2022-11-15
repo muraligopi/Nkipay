@@ -129,6 +129,14 @@ class _currentUserPaymentState extends State<currentUserPayment> {
                                   Padding(
                                     padding: const EdgeInsets.all(4.0),
                                     child: Text(
+                                      'Api Tansaction Id: '
+                                      "${signleuser.api_transaction_id}",
+                                      //style: TextStyle(fontSize: 8),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: Text(
                                       'Tansaction Id: '
                                       "${signleuser.uid}",
                                       //style: TextStyle(fontSize: 8),
@@ -151,16 +159,33 @@ class _currentUserPaymentState extends State<currentUserPayment> {
                                   Padding(
                                     padding: const EdgeInsets.all(4.0),
                                     child: Text(
-                                      'Amount: '
+                                      'amount paid: '
                                       "${signleuser.amount}",
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(4.0),
-                                    child: Text('Paied_on: '
-                                        "${signleuser.paied_at.toDate().day}/${signleuser.paied_at.toDate().month}/ ${signleuser.paied_at.toDate().year}"
-                                        // "${signleuser.paied_at}",
-                                        ),
+                                    child: Text(
+                                      'opening balance: '
+                                      "${signleuser.opening_balance}",
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: Text(
+                                      'closing balance: '
+                                      "${signleuser.closing_balance}",
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: Text(
+                                      'Paied_on: '
+                                      "${signleuser.paied_at.toDate().day}/${signleuser.paied_at.toDate().month}/${signleuser.paied_at.toDate().year}"
+                                      "  Paied_at: "
+                                      //"${signleuser.paied_at.toDate().toLocal()}",
+                                      "${signleuser.paied_at.toDate().hour}:${signleuser.paied_at.toDate().minute}:${signleuser.paied_at.toDate().second}",
+                                    ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(4.0),
@@ -315,6 +340,9 @@ class UserModel {
   final String user_email;
   final String status;
   final Timestamp paied_at;
+  final double opening_balance;
+  final double closing_balance;
+  final String api_transaction_id;
 
   UserModel({
     required this.user_email,
@@ -323,6 +351,9 @@ class UserModel {
     required this.uid,
     required this.status,
     required this.paied_at,
+    required this.closing_balance,
+    required this.opening_balance,
+    required this.api_transaction_id,
   });
 
   Map<String, dynamic> toJson() => {
@@ -331,7 +362,10 @@ class UserModel {
         'amount': amount,
         'uid': uid,
         'status': status,
-        'pay_at': paied_at as Timestamp
+        'pay_at': paied_at as Timestamp,
+        'user had balance after this transaction': closing_balance,
+        "user had balance before transaction": opening_balance,
+        'api transaction id': api_transaction_id,
       };
 
   factory UserModel.fromSnapshot(DocumentSnapshot snap) {
@@ -343,6 +377,9 @@ class UserModel {
       uid: snapshot['uid'].toString(),
       paied_at: snapshot['pay_at'] as Timestamp,
       status: snapshot['status'],
+      opening_balance: snapshot['user had balance before transaction'],
+      closing_balance: snapshot['user had balance after this transaction'],
+      api_transaction_id: snapshot['api transaction id'],
     );
   }
 

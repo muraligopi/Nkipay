@@ -82,6 +82,8 @@ flutter:
     - assets/chat.json
     - assets/top.json
     - assets/signup.json
+    - assets/1-removebg-preview.png
+    - assets/2-removebg-preview.png
     - outputs/gif/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

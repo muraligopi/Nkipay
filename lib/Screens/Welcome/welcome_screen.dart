@@ -1,4 +1,5 @@
 import 'package:Nkipay/Screens/Welcome/components/welcome_image_1.dart';
+import 'package:Nkipay/pages/homeSreens/phoneRecharge_form.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/background.dart';
@@ -27,6 +28,7 @@ class WelcomeScreen extends StatelessWidget {
                     children: const [
                       SizedBox(
                         width: 450,
+                        //child: phoneRecgargeForm(),
                         child: LoginAndSignupBtn(),
                       ),
                     ],
@@ -58,6 +60,7 @@ class MobileWelcomeScreen extends StatelessWidget {
             Spacer(),
             Expanded(
               flex: 8,
+              //child: phoneRecgargeForm(),
               child: LoginAndSignupBtn(),
             ),
             Spacer(),

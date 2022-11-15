@@ -1,3 +1,4 @@
+import 'package:Nkipay/pages/homeSreens/current_user_details.dart';
 import 'package:Nkipay/utils/constants.dart';
 import 'package:Nkipay/utils/showSnackBar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -39,29 +40,65 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //Text("                                 "),
-                Image.asset(
-                  'assets/NK-home-1.png',
-                  height: 120,
+                // Padding(
+                //   padding: const EdgeInsets.all(8.0),
+                //   child: Image.asset(
+                //     'assets/Nk_logo-removebg-preview-1.png',
+                //     height: 100,
+                //     width: 100,
+                //   ),
+                // ),
+                Container(
+                  child: Row(children: [
+                    Image.asset(
+                      'assets/1-removebg-preview.png',
+                      height: 100,
+                      width: 100,
+                    ),
+                    Image.asset(
+                      'assets/2-removebg-preview.png',
+                      height: 150,
+                      width: 150,
+                    ),
+                  ]),
                 ),
 
                 // Container(padding: const EdgeInsets.only(top: 8.0), child: ),
-                Container(
-                  child: IconButton(
-                      tooltip: "Log out",
-                      icon: const Icon(
-                        Icons.logout,
-                        color: kPrimaryColor,
+                Row(
+                  children: [
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    //userdetail1(),
+                    const Text(" "),
+                    Text(
+                      "Logout",
+                      // style: TextStyle(color: Colors.black),
+                      style: GoogleFonts.josefinSans(
+                        fontWeight: FontWeight.w900,
+                        color: Color.fromARGB(255, 14, 3, 3),
+                        // height: 1.3,
+                        fontSize: 16.0,
                       ),
-                      onPressed: () {
-                        FirebaseAuth.instance.signOut().then((value) {
-                          showSnackBar(context, "Logged out successfully.....");
-                          Navigator.pop(context);
-                        }).onError((error, stackTrace) {
-                          showSnackBar(context, "$error");
-                        });
-                      }
-                      // _signOut,
-                      ),
+                    ),
+                    IconButton(
+                        tooltip: "Log out",
+                        icon: const Icon(
+                          Icons.logout,
+                          color: kPrimaryColor,
+                        ),
+                        onPressed: () {
+                          FirebaseAuth.instance.signOut().then((value) {
+                            showSnackBar(
+                                context, "Logged out successfully.....");
+                            Navigator.pop(context);
+                          }).onError((error, stackTrace) {
+                            showSnackBar(context, "$error");
+                          });
+                        }
+                        // _signOut,
+                        ),
+                  ],
                 ),
               ],
             ),
@@ -70,7 +107,7 @@ class _HomePageState extends State<HomePage> {
             //   padding: EdgeInsets.only(top: 8.0),
             //   //my :Image.asset('assets/title.png', fit: BoxFit.cover),
             //   // child: _GooglePlayAppBar(),
-            // ),
+            // )
             bottom: TabBar(
               isScrollable: true,
               indicatorColor: Color.fromARGB(255, 0, 0, 0),
@@ -170,11 +207,15 @@ class _HomePageState extends State<HomePage> {
           ),
           body: TabBarView(
             children: <Widget>[
+              HomeTopTabs(0xFFF1E6FF),
               HomeTopTabs(0xFFF1E6FF), //ff5722
-              GamesTopTabs(0xFFF1E6FF), //3f51b5
-              MoviesTopTabs(0xFFF1E6FF), //e91e63
-              BooksTopTabs(0xFFF1E6FF), //9c27b0
-              MusicTopTabs(0xFFF1E6FF), //2196f3 //4CAF50
+              HomeTopTabs(0xFFF1E6FF),
+              HomeTopTabs(0xFFF1E6FF),
+              HomeTopTabs(0xFFF1E6FF),
+              // GamesTopTabs(0xFFF1E6FF), //3f51b5
+              // MoviesTopTabs(0xFFF1E6FF), //e91e63
+              // BooksTopTabs(0xFFF1E6FF), //9c27b0
+              // MusicTopTabs(0xFFF1E6FF), //2196f3 //4CAF50
             ],
           )),
     );

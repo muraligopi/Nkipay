@@ -30,6 +30,7 @@ class signForm extends State<SignUpWidget> {
   final role = TextEditingController();
   // final auth = FirebaseAuth.instance;
 
+  @override
   void dispose() {
     super.dispose();
     emailid.dispose();
